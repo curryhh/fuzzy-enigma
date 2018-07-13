@@ -33,7 +33,7 @@
 
 		<img src="images/close.png" class="result_close">
 
-		<p class="award_txt">恭喜获得礼物：<br>iphone1台</p>	
+		<p class="award_txt">恭喜获得礼物：<br>iphone1台</p>
 
 	</div>
 
@@ -71,13 +71,13 @@
 
 			<img src="images/bottom.png" class="bottom" id="bottom">
 
-			<canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas> 
+			<canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
 
 			<img class="pointer" src="images/pointer.png" id="pointer"/>
 
 			<canvas class="pointer2" width="200px" height="424px" id="pointer2"></canvas>
 
-			
+
 		</div>
 
 	</div>
@@ -179,7 +179,7 @@
 
 			startAngle:0,				//开始角度
 
-			
+
 
 			bRotate:false				//false:停止;ture:旋转
 
@@ -196,9 +196,9 @@ function rnd(n, m){
 	}
 
 //画布canvas
-	function drawRouletteWheel() {    
+	function drawRouletteWheel() {
 
-	  var canvas = document.getElementById("wheelcanvas");    
+	  var canvas = document.getElementById("wheelcanvas");
 
 	  if (canvas.getContext) {
 
@@ -214,7 +214,7 @@ function rnd(n, m){
 		  // 位置
 		  ctx.clearRect(0,0,422,422);
 
-		  //strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式  
+		  //strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式
 
 		  ctx.strokeStyle = "#FFFFFF";
 
@@ -223,10 +223,10 @@ function rnd(n, m){
 
 		  //font 属性设置或返回画布上文本内容的当前字体属性
 
-		  ctx.font = '14px Microsoft YaHei';      
+		  ctx.font = '14px Microsoft YaHei';
 
 		  // 绘制圆
-		  for(var i = 0; i < turnplate.restaraunts.length; i++) {       
+		  for(var i = 0; i < turnplate.restaraunts.length; i++) {
 
 		  		//----绘制轮廓----
 			  var angle = turnplate.startAngle + i * arc;
@@ -236,21 +236,21 @@ function rnd(n, m){
 
 			  ctx.beginPath();
 
-			  //arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）    
+			  //arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）
 
-			  ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);    
+			  ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);
 
 			  ctx.arc(211, 211, turnplate.insideRadius, angle + arc, angle, true);
 
-			  ctx.stroke();  
+			  ctx.stroke();
 
 			  ctx.fill();
 
 			  //锁画布(为了保存之前的画布状态)
 
-			  ctx.save();   
+			  ctx.save();
 
-			  
+
 
 			  //----绘制奖品开始----
 
@@ -265,13 +265,13 @@ function rnd(n, m){
 
 			  ctx.translate(211 + Math.cos(angle + arc / 2) * turnplate.textRadius, 211 + Math.sin(angle + arc / 2) * turnplate.textRadius);
 
-			  
+
 
 			  //rotate方法旋转当前的绘图
 
 			  ctx.rotate(angle + arc / 2 + Math.PI / 2);
 
-			  
+
 
 			  /** 下面代码根据奖品类型、奖品名称长度渲染不同效果，如字体、颜色、图片效果。(具体根据实际情况改变) **/
 
@@ -295,7 +295,7 @@ function rnd(n, m){
 
 				  }
 
-			  }else if(text.indexOf("M") == -1 && text.length>6){//奖品名称长度超过一定范围 
+			  }else if(text.indexOf("M") == -1 && text.length>6){//奖品名称长度超过一定范围
 
 				  text = text.substring(0,6)+"||"+text.substring(6);
 
@@ -319,15 +319,15 @@ function rnd(n, m){
 
 			  //添加对应图标
 
-			  //把当前画布返回（调整）到上一个save()状态之前 
+			  //把当前画布返回（调整）到上一个save()状态之前
 
 			  ctx.restore();
 
 			  //----绘制奖品结束----
 
-		  }     
+		  }
 
-	  } 
+	  }
 
 	}
 
@@ -343,7 +343,7 @@ function rnd(n, m){
 
 		img.src = "images/pointer.png";
 
-		ctx.drawImage(img,0,0);      
+		ctx.drawImage(img,0,0);
 
 	}
 
@@ -361,17 +361,14 @@ function rnd(n, m){
 
 		//动态添加大转盘的奖品与奖品区域背景颜色
 
-		//turnplate.restaraunts = //["掂过碌蔗","吉祥如意","家肥润屋","出入平安","猪笼入水","大富大贵","捞乜都掂","逢赌必赢","旺到飞起","升职加薪","财源广进","幸福美满","心想事成","人旺财旺","六六大顺","一路发财"];
-		turnplate.restaraunts =	["只","要","人","类","不","绝","食","吃","货","的","友","谊","延","续","不","断"]
-		
-        turnplate.bonus=["1.8","2.8","3.8","5.8","6.66","6.68","6.8","8.88","16.88","18","18.88","28","38","58","66","68"];
+		turnplate.restaraunts = ["ming", "权叔", "kk", "厚街叔叔","珏","打码哥","jdd",  "莫姐姐","jf", "医生","钟生"];
+
 		//turnplate.colors = ["#feef58", "#4ad290", "#b587c7", "#feef58", "#4ad290", "#b587c7", "#feef58", "#4ad290", "#b587c7", "#feef58", "#4ad290"];
 
-		turnplate.hint= ["掂过碌蔗", "吉祥如意", "家肥润屋", "出入平安", "猪笼入水", "大富大贵", "捞乜都掂", "逢赌必赢", "旺到飞起", "升职加薪", "财源广进", "幸福美满", "心想事成", "人旺财旺", "六六大顺", "一路发财"];
-		turnplate.colors = ["#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF","#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF","#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF"];
+		turnplate.colors = ["#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF","#fcc0bc", "#FFFFFF", "#fcc0bc", "#FFFFFF","#fcc0bc", "#FFFFFF","#fcc0bc"];
 
 
-		
+
 
 		// var rotateTimeOut = function (){
 
@@ -404,7 +401,7 @@ function rnd(n, m){
 
 			if(angles<270){
 
-				angles = 270 - angles; 
+				angles = 270 - angles;
 
 			}else{
 
@@ -423,10 +420,10 @@ function rnd(n, m){
 				duration:8000,
 
 				callback:function (){
-					document.getElementsByClassName("result")[0].style.display = "block";	
+					document.getElementsByClassName("result")[0].style.display = "block";
 
 						document.getElementsByClassName("result_box")[0].style.display = "block";
-						document.getElementsByClassName("award_txt")[0].innerHTML = txt;
+						document.getElementsByClassName("award_txt")[0].innerHTML = txt+"的礼物";
 
 					/*alert(txt);*/
 
@@ -434,10 +431,7 @@ function rnd(n, m){
 
 					turnplate.bRotate = !turnplate.bRotate;
 
-                    // 去除重绘
-					turnplate.restaraunts.splice(item-1,1); 
-                    turnplate.bonus.splice(item - 1, 1);
-					turnplate.hint.splice(item - 1, 1);
+					turnplate.restaraunts.splice(item-1,1);
 					console.log(turnplate.restaraunts);
 					drawRouletteWheel();
 
@@ -466,14 +460,13 @@ function rnd(n, m){
 
 			// 	rotateFn(item,"谢谢参与");
 
-				
+
 			// }else{
 
 			// 	rotateFn(item,"获得:<br>"+turnplate.restaraunts[item-1]);
 
 			// }
-			rotateFn(item,turnplate.hint[item-1]+"<br>"+"抽中红包:"+turnplate.bonus[item-1]+ "元");
-			
+			rotateFn(item,"恭喜你获得礼物:<br>"+turnplate.restaraunts[item-1]);
 
 			// 中奖名单顺序
 
@@ -492,15 +485,15 @@ function rnd(n, m){
 
 
 
-	
 
 
 
 
-	
 
 
-	
+
+
+
 
 	</script>
 
